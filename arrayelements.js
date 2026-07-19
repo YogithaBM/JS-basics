@@ -20,10 +20,9 @@ sum();
 function largest(){
     let l=0;
     for(let num of nums){
-        if (num[l]<num){
-            num[l]=num;
+        if (nums[l]<num){
+            nums[l]=num;
         }
     }
     concole.log(num[l]);
 }
-largest();S
