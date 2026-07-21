@@ -110,3 +110,7 @@ function occurence(){
     console.log("the number of times the given element has occured is = "+count);
 }
 occurence();
+
+function secondLargest(){
+    
+}
