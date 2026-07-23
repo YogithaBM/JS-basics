@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BANK ACCOUNT REGISTRATION FORM</title>
+        <link rel="stylesheet" href="loan.css">
+    </head>
+    <body style="background-color: rgb(190, 218, 243);">
+        <h1 style="background-color: rgb(37, 83, 232); color: white; font-size:xx-large; text-align: center;">BANK ACCOUNT REGISTRATION FORM</h1>
+        <form method="post">
+            <label for="nameId" class="form-label">Full Name : </label>
+            <input type="text" name="username" id="nameId" placeholder="Enter full name" class="form-input" onblur="validateUserName()">
+            <span style="color: red;" id="nameErrorId"></span>
+            <br><br>
+            
+            <label for="DOBId" class="form-label">Date OF Birth : </label>
+            <input type="date" name="userdob" id="DOBId" placeholder="Enter DOB" required>    
+            <br><br>
+            
+            <label for="genderId" class="form-label">Gender : </label>
+            <select name="gender" id="genderId" class="form-input">
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="others">Others</option>
+            </select>
+            <br><br>
+
+            <label for="phonenumberId" class="form-label">Phone Number : </label>
+            <input type="number" name="phonenumber" id="phonenumberId" placeholder="Enter Phone number" class="form-input" required>
+            <br><br>
+
+            <label for="AcctypeId" class="form-label">Account Type : </label>
+            <select name="Acctype" id="AcctypeId" class="form-input">
+                <option value="saving acc">Savings Account</option>
+                <option value="current acc">Current Account</option>
+                <option value="fixed deposit acc">Fixed Deposit Account</option>
+                <option value="salary acc">Salary Account</option>
+            </select>
+            <br><br>
+
+            <label for="acc-numberId" class="form-label">Account Number : </label>
+            <input type="number" name="acc number" id="acc-numberId" class="form-input">
+            <br> <br>          
+                    
+            <label for="loan-amtId" class="form-label">Principle Loan Amount : </label>
+            <input type="number" name="loan amt" id="loan-amtId" placeholder="Enter Amount" class="form-input" >
+            <br><br>
+
+            <label for="loan purpose" class="form-label">Loan Purpose : </label>
+            <select name="loan purpose" id="loan purpose" class="form-input">
+                <option value="construction">Construction Expenses</option>
+                <option value="shopping">Shopping Expenses</option>
+                <option value="medical">Medical Expenses</option>
+                <option value="education">Education Expenses</option>
+                <option value="business">Business Expansion</option>
+            </select>
+        </form>
+            
+
+    </body>
+
+    <script>
+        function validateUserName() {
+    let userName = document.getElementById("nameId").value.trim();
+    let nameError = document.getElementById("nameErrorId");
+
+    let lettersOnlyPattern = /^[A-Za-z\s]+$/;
+    
+    if (!lettersOnlyPattern.test(userName)) {
+        nameError.innerHTML = "Name can only contain letters";
+    } 
+    else if (userName.length < 3) {
+        nameError.innerHTML = "Name must be at least 3 characters long";
+    } 
+    else if (userName.length >= 50) {
+        nameError.innerHTML = "Name must be less than 50 characters long";
+    }
+    else {
+        nameError.innerHTML = ""; 
+    }
+}
+    </script>
+    
+</html>
