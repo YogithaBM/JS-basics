@@ -60,23 +60,28 @@
 
     <script>
         function validateUserName() {
-    let userName = document.getElementById("nameId").value.trim();
-    let nameError = document.getElementById("nameErrorId");
+            let userName = document.getElementById("nameId").value.trim();
+            let nameError = document.getElementById("nameErrorId");
 
-    let lettersOnlyPattern = /^[A-Za-z\s]+$/;
-    
-    if (!lettersOnlyPattern.test(userName)) {
-        nameError.innerHTML = "Name can only contain letters";
-    } 
-    else if (userName.length < 3) {
-        nameError.innerHTML = "Name must be at least 3 characters long";
-    } 
-    else if (userName.length >= 50) {
-        nameError.innerHTML = "Name must be less than 50 characters long";
-    }
-    else {
-        nameError.innerHTML = ""; 
-    }
+            let lettersOnlyPattern = /^[A-Za-z\s]+$/;
+            
+            if (!lettersOnlyPattern.test(userName)) {
+                nameError.innerHTML = "Name can only contain letters";
+            } 
+            else if (userName.length < 3) {
+                nameError.innerHTML = "Name must be at least 3 characters long";
+            } 
+            else if (userName.length >= 50) {
+                nameError.innerHTML = "Name must be less than 50 characters long";
+            }
+            else {
+                nameError.innerHTML = ""; 
+            }
+
+        function validatePhoneNumber(){
+            
+        }
+
 }
     </script>
     
