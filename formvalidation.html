@@ -25,7 +25,8 @@
             <br><br>
 
             <label for="phonenumberId" class="form-label">Phone Number : </label>
-            <input type="number" name="phonenumber" id="phonenumberId" placeholder="Enter Phone number" class="form-input" required>
+            <input type="tel" name="phonenumber" id="phonenumberId" placeholder="Enter Phone number" class="form-input" onblur="validatePhoneNumber()" required>
+            <span style="color: red;" id="phoneErrorId"></span>
             <br><br>
 
             <label for="AcctypeId" class="form-label">Account Type : </label>
@@ -38,52 +39,82 @@
             <br><br>
 
             <label for="acc-numberId" class="form-label">Account Number : </label>
-            <input type="number" name="acc number" id="acc-numberId" class="form-input">
+            <input type="tel" name="acc number" id="acc-numberId" class="form-input">
             <br> <br>          
                     
             <label for="loan-amtId" class="form-label">Principle Loan Amount : </label>
-            <input type="number" name="loan amt" id="loan-amtId" placeholder="Enter Amount" class="form-input" >
+            <input type="tel" name="loan amt" id="loan-amtId" placeholder="Enter Amount" class="form-input" >
             <br><br>
 
-            <label for="loan purpose" class="form-label">Loan Purpose : </label>
-            <select name="loan purpose" id="loan purpose" class="form-input">
+            <label for="loan-purpose" class="form-label">Loan Purpose : </label>
+            <select name="loan purpose" id="loan-purpose" class="form-input">
                 <option value="construction">Construction Expenses</option>
                 <option value="shopping">Shopping Expenses</option>
                 <option value="medical">Medical Expenses</option>
                 <option value="education">Education Expenses</option>
                 <option value="business">Business Expansion</option>
             </select>
+            <br><br><br>
+
+            <button type="submit" class="form-label" style="background-color: rgb(24, 72, 231);color: white;">Register</button>
         </form>
+
+            <!--Java Script part -->
+        <script>
+            function validateUserName() {
+                let userName = document.getElementById("nameId").value.trim();
+                let nameError = document.getElementById("nameErrorId");
+
+                let lettersOnlyPattern = /^[A-Za-z\s]+$/;
+                
+                if (!lettersOnlyPattern.test(userName)) {
+                    nameError.innerHTML = "Name can only contain letters";
+                } 
+                else if (userName.length < 3) {
+                    nameError.innerHTML = "Name must be at least 3 characters long";
+                } 
+                else if (userName.length >= 50) {
+                    nameError.innerHTML = "Name must be less than 50 characters long";
+                }
+                else {
+                    nameError.innerHTML = ""; 
+                }
             
+            }
+        
+            function validatePhoneNumber() {
+                let phone = document.getElementById("phonenumberId").value.trim();
+                let phoneError = document.getElementById("phoneErrorId");
+
+                let phonePattern = /^[0-9]{10}$/;
+
+                if (!phonePattern.test(phone)) {
+                    phoneError.innerHTML = "Can enter numbers only ";
+                } 
+                else if(phone.length!=10){
+                    phoneError.innerHTML="Phone number must be 10 digits";
+                }
+                else {
+                    phoneError.innerHTML = "";
+                }
+            }
+
+            function validateAccNUm(){
+                let acc=document.getElementById("acc-numberId");
+                let accNum=/^[0-9]{10}$/;
+
+                if (!accNum.test(acc)){
+                    accNum.innerHTML=""
+                }
+            }
+
+            
+
+
+    </script>
+    
 
     </body>
 
-    <script>
-        function validateUserName() {
-            let userName = document.getElementById("nameId").value.trim();
-            let nameError = document.getElementById("nameErrorId");
-
-            let lettersOnlyPattern = /^[A-Za-z\s]+$/;
-            
-            if (!lettersOnlyPattern.test(userName)) {
-                nameError.innerHTML = "Name can only contain letters";
-            } 
-            else if (userName.length < 3) {
-                nameError.innerHTML = "Name must be at least 3 characters long";
-            } 
-            else if (userName.length >= 50) {
-                nameError.innerHTML = "Name must be less than 50 characters long";
-            }
-            else {
-                nameError.innerHTML = ""; 
-            }
-
-        function validatePhoneNumber(){
-            let phoneNum=
-            
-        }
-
-}
-    </script>
     
 </html>
