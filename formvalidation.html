@@ -98,15 +98,13 @@
                     phoneError.innerHTML = "";
                 }
             }
+             
+            
 
-            function validateAccNUm(){
-                let acc=document.getElementById("acc-numberId");
-                let accNum=/^[0-9]{10}$/;
-
-                if (!accNum.test(acc)){
-                    accNum.innerHTML=""
-                }
+            function allowDigitsOnly(input) {
+                input.value = input.value.replace(/[^0-9]/g, "");
             }
+
 
             
 
