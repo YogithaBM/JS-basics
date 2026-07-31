@@ -39,7 +39,7 @@
             <br><br>
 
             <label for="acc-numberId" class="form-label">Account Number : </label>
-            <input type="tel" name="acc number" id="acc-numberId" class="form-input">
+            <input type="tel" name="acc number" id="acc-numberId" class="form-input" onblur="validateNumericField('acc-numberId', 'accNumberErrorId', 'Account Number')">
             <br> <br>          
                     
             <label for="loan-amtId" class="form-label">Principle Loan Amount : </label>
@@ -100,11 +100,22 @@
             }
              
             
-
-            function allowDigitsOnly(input) {
-                input.value = input.value.replace(/[^0-9]/g, "");
+            
+            function validateNumericField(inputId, errorId, fieldName) {
+                let value = document.getElementById(inputId).value.trim();
+                let errorElement = document.getElementById(errorId);
                 
-            }
+                let numericPattern = /^[0-9]+$/;
+
+                if (value === "") {
+                    // If the field is empty, clear errors (since fields are optional)
+                    errorElement.innerHTML = "";
+                } else if (!numericPattern.test(value)) {
+                    errorElement.innerHTML = fieldName + " must contain numbers only";
+                } else {
+                    errorElement.innerHTML = "";
+                }
+}
 
 
             
