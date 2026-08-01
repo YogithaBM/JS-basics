@@ -108,7 +108,6 @@
                 let numericPattern = /^[0-9]+$/;
 
                 if (value === "") {
-                    // If the field is empty, clear errors (since fields are optional)
                     errorElement.innerHTML = "";
                 } else if (!numericPattern.test(value)) {
                     errorElement.innerHTML = fieldName + " must contain numbers only";
